@@ -87,16 +87,17 @@ class Board {
           } else if (j - 1 > -1 && this.oldState[i+1][j-1] == 0) {
             this.newState[i+1][j-1] = 2;
             this.newState[i][j] = 0;
-          }
-          else if (this.oldState[i+1][j] == 2) {
-           
-            if (random(1) < 0.5 && j + 1 < this.cols && this.oldState[i][j+1] == 0) {
-            this.newState[i][j+1] = 2;
-            this.newState[i][j] = 0;
-          } else if (j - 1 > -1 && this.oldState[i][j-1] == 0) {
-            this.newState[i][j-1] = 2;
-            this.newState[i][j] = 0;
-            }
+          } else {
+            
+              if (j + 1 < this.cols && this.newState[i][j+1] == 0) {
+                this.newState[i][j+1] = 2;
+                this.newState[i][j] = 0;
+              } else if (j - 1 > -1 && this.newState[i][j-1] == 0) {
+                this.newState[i][j-1] = 2;
+                this.newState[i][j] = 0;
+              } else {
+                this.newState[i][j] = 2;
+              }
           }
         }
       }
@@ -104,22 +105,22 @@ class Board {
   }
 
 
-  public void setSpawn() {
-    if (key == 'S' || key == 's') {
-      this.spawnType = 1;
-    }
-    else if (key == 'W' || key == 'w') {
-      this.spawnType = 2;
-    }
-  }
-  
-  public void spawn() {
-    int x = (mouseX / this.res);
-    int y = (mouseY / this.res);
 
-    if (mousePressed) {
+      public void setSpawn() {
+        if (key == 'S' || key == 's') {
+          this.spawnType = 1;
+        } else if (key == 'W' || key == 'w') {
+          this.spawnType = 2;
+        }
+      }
 
-      this.newState[y][x] = this.spawnType;
+      public void spawn() {
+        int x = (mouseX / this.res);
+        int y = (mouseY / this.res);
+
+        if (mousePressed) {
+
+          this.newState[y][x] = this.spawnType;
+        }
+      }
     }
-  }
-}

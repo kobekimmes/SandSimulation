@@ -1,14 +1,14 @@
-int W = 800;
-int H = 800;
+int W = 1000;
+int H = 1000;
 
-int DIM = 20;
+int DIM = 10;
 int R = H / DIM;
 int C = W / DIM;
 
 Board myBoard = new Board(R, C, DIM);
 
 void setup() {
-  size(800, 800);
+  size(1000, 1000);
 }
 
 void draw() {
