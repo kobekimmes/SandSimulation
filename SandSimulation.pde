@@ -17,5 +17,6 @@ void draw() {
   myBoard.updateBoard();
   myBoard.evalBoard();
   myBoard.setSpawn();
+  myBoard.showSpawn();
   myBoard.spawn();
 }
